@@ -1,0 +1,266 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300');
+body {
+    text-align: center;
+    color: #555;
+    font-family: 'Roboto';
+    font-weight: 300;
+    font-size: 32px;
+    padding-top: 10vh;
+    height: 100%;
+}
+
+.regex, .showup {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.moving-text h1 {
+    animation: showup 7s infinite;
+}
+
+.regex-showup {
+    width: 0px;
+    animation: reveal 7s infinite;
+}
+
+.regex-showup span {
+    animation: slidein 7s infinite;
+}
+
+.form-container {
+    width: 40% !important;
+    margin: 0 auto;
+}
+
+.hide-result-container {
+    display: none !important;
+}
+
+.show-result-container {
+    display: block !important;
+    display: flex !important;
+}
+
+.result {
+    width: 100%;
+    margin: 0 auto !important;
+}
+
+.on-error {
+    animation: shake 0.5s;
+}
+
+.on-success {
+    -webkit-animation-duration: 2.5s;
+    animation-duration: 2.5s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    -webkit-animation-iteration-count: infinite;
+}
+
+.select-box {
+    position: relative;
+    display: flex;
+    width: 400px;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+.select-box .options-container {
+    background: #f5f6fa;
+    color: #2f3640;
+    max-height: 0;
+    width: 100%;
+    opacity: 0;
+    transition: all 0.4s;
+    border-radius: 8px;
+    overflow: hidden;
+    order: 1;
+}
+
+.selected {
+    background: #f5f6fa;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    color: #2f3640;
+    position: relative;
+    order: 0;
+}
+
+.selected::after {
+    content: "";
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    height: 100%;
+    width: 32px;
+    right: 10px;
+    top: 5px;
+    transition: all 0.4s;
+}
+
+.select-box .options-container.active {
+    max-height: 240px;
+    opacity: 1;
+    overflow-y: scroll;
+    margin-top: 54px;
+}
+
+.select-box .options-container.active+.selected::after {
+    transform: rotateX(180deg);
+    top: -6px;
+}
+
+.select-box .options-container::-webkit-scrollbar {
+    width: 8px;
+    background: #e0e1e2;
+    border-radius: 0 8px 8px 0;
+}
+
+.select-box .options-container::-webkit-scrollbar-thumb {
+    background: #e0e1e2;
+    border-radius: 0 8px 8px 0;
+}
+
+.select-box .option, .selected {
+    padding: 12px 24px;
+    cursor: pointer;
+}
+
+.select-box .option:hover {
+    background: #e0e1e2
+}
+
+.select-box label {
+    cursor: pointer;
+}
+
+.select-box .option .radio {
+    display: none;
+}
+
+/* Searchbox */
+
+.search-box input {
+    display: block;
+    width: 100% !important;
+    padding: 12px 16px !important;
+    font-family: "Roboto", sans-serif !important;
+    font-size: 16px !important;
+    position: absolute !important;
+    border-radius: 8px 8px 0 0 !important;
+    z-index: 100 !important;
+    border: 8px solid #e0e1e2 !important;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.4s;
+}
+
+.search-box input:focus {
+    outline: none;
+}
+
+.select-box .options-container.active~.search-box input {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+@keyframes showup {
+    0% {
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes slidein {
+    0% {
+        margin-left: -10px;
+    }
+    20% {
+        margin-left: -10px;
+    }
+    35% {
+        margin-left: 0px;
+    }
+    100% {
+        margin-left: 0px;
+    }
+}
+
+@keyframes reveal {
+    0% {
+        opacity: 0;
+        width: 0px;
+    }
+    20% {
+        opacity: 1;
+        width: 0px;
+    }
+    30% {
+        width: 200px;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        width: 200px;
+    }
+}
+
+@keyframes shake {
+    0% {
+        transform: translate(1px, 1px) rotate(0deg);
+    }
+    10% {
+        transform: translate(-1px, -2px) rotate(-1deg);
+    }
+    20% {
+        transform: translate(-3px, 0px) rotate(1deg);
+    }
+    30% {
+        transform: translate(3px, 2px) rotate(0deg);
+    }
+    40% {
+        transform: translate(1px, -1px) rotate(1deg);
+    }
+    50% {
+        transform: translate(-1px, 2px) rotate(-1deg);
+    }
+    60% {
+        transform: translate(-3px, 1px) rotate(0deg);
+    }
+    70% {
+        transform: translate(3px, 1px) rotate(-1deg);
+    }
+    80% {
+        transform: translate(-1px, -1px) rotate(1deg);
+    }
+    90% {
+        transform: translate(1px, 2px) rotate(0deg);
+    }
+    100% {
+        transform: translate(1px, -2px) rotate(-1deg);
+    }
+}
+
+@keyframes bounce {
+    0%, 20%, 40%, 60%, 80%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}

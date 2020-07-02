@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RegEx</title>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <script src="js/regex.js"></script>
+    <div class="ui grid middle aligned">
+        <div class="row">
+            <div class="column">
+                <div class="ui text container segment moving-text row">
+                    <div class="column regex">
+                        <h1>Javascript</h1>
+                    </div>
+                    <div class="column showup">
+                        <div class="regex-showup ">
+                            <span>Expresiones regulares</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="column form-container">
+                <div class="ui form raised segment">
+                    <div class="ui grid">
+                        <div class="ui top attached tabular menu">
+                            <a class="item active" data-tab="first">Ejemplo 1</a>
+                            <a class="item" data-tab="second">Ejemplo 2</a>
+                        </div>
+                        <div class="ui bottom attached tab segment active" data-tab="first">
+                            <div class="sixteen wide column">
+                                <div class="ui fluid selection dropdown">
+                                    <input type="hidden" id="field-type">
+                                    <i class="dropdown icon"></i>
+                                    <div class="default text">Field</div>
+                                    <div class="menu">
+                                        <div class="item" data-value="text">Texto</div>
+                                        <div class="item" data-value="numbers">Número</div>
+                                        <div class="item" data-value="carnet">Carnet</div>
+                                        <div class="item" data-value="dui">DUI</div>
+                                        <div class="item" data-value="nit">NIT</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="sixteen wide column">
+                                <div class="ui form">
+                                    <div class="field">
+                                        <input type="text" id="data">
+                                        <div class="ui pointing label">
+                                            Llena el campo
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ui grid centered result hide-result-container" id="result-container">
+                                <div class="sixteen wide column">
+                                    <div class="ui raised segment">
+                                        <a class="ui ribbon label" id="ribbon">
+                                            <p id="alert-type"></p>
+                                        </a><br>
+                                        <span>Formato esperado: <b id="expected-text"></b></span><br>
+                                        <span>Texto ingresado: <b id="output-text"></b></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sixteen wide column">
+                                <button class="ui right labeled icon button" id="validate">
+                                    <i class="right arrow icon"></i>
+                                    Validar
+                                </button>
+                            </div>
+                        </div>
+                        <div class="ui bottom attached tab segment" data-tab="second">
+                            <div class="select-box" id="dropdown-container">
+                                <div class="options-container" id="search-dropdown">
+                                </div>
+                                  <div class="selected">
+                                    Selecciona el país
+                                  </div>
+                                  <div class="search-box">
+                                    <input type="text" placeholder="Soy de..." />
+                                  </div>
+   
+                            </div>
+                        
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+</body>
+
+</html>
